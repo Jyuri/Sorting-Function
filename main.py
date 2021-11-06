@@ -19,7 +19,7 @@ def quickSort(x):
   i = 0
   numTrans = 0
   tempNumTrans = 0
-  pbarCheck = tqdm(desc='Check Count', total = (len(x)**2))
+  # pbarCheck = tqdm(desc='Check Count', total = (len(x)**2))
   pbarChange = tqdm(desc='Change Count')
   while True:
     if i == (len(x)-1):
@@ -36,8 +36,8 @@ def quickSort(x):
       numTrans += 1
       pbarChange.update(1)
     i += 1
-    pbarCheck.update(1)
-  pbarCheck.close()
+    # pbarCheck.update(1)
+  # pbarCheck.close()
   pbarChange.close()
   return x
 
