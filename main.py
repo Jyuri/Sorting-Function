@@ -7,7 +7,7 @@ import PySimpleGUI as sg
 
 windowWidth=1400
 windowHeight=780
-numOfIntervals=500
+numOfIntervals=780
 slope = windowHeight/windowWidth
 step = windowWidth/numOfIntervals
 
