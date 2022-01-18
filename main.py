@@ -117,20 +117,20 @@ def ForwardAndBackSort(x):
 #Meant to work with another sorting function to speed up the sorting process of large arrays
 def chunkSorting(x):
   chunkDef = len(x)/4
-  chunk1 = [[0,(chunkDef-1)],[]]
+  chunk1 = [[0,(chunkDef)],[]]
   chunk2 = [[chunkDef,(chunkDef*2)],[]]
   chunk3 = [[(chunkDef*2),(chunkDef*3)],[]]
   chunk4 = [[(chunkDef*3),(chunkDef*4)],[]]
   errChunk = []
 
   for i in range(0,len(x)):
-    if chunk1[0][0] <= x[i] & x[i] <= chunk1[0][1]:
+    if chunk1[0][0] <= x[i] & x[i] < chunk1[0][1]:
       chunk1[1].append([x[i],i])
-    elif chunk2[0][0] <= x[i] & x[i] <= chunk2[0][1]:
+    elif chunk2[0][0] <= x[i] & x[i] < chunk2[0][1]:
       chunk2[1].append([x[i],i])
-    elif chunk3[0][0] <= x[i] & x[i] <= chunk3[0][1]:
+    elif chunk3[0][0] <= x[i] & x[i] < chunk3[0][1]:
       chunk3[1].append([x[i],i])
-    elif chunk4[0][0] <= x[i] & x[i] <= chunk4[0][1]:
+    elif chunk4[0][0] <= x[i] & x[i] < chunk4[0][1]:
       chunk4[1].append([x[i],i])
     else:
       errChunk.append([x[i],i])
@@ -168,6 +168,39 @@ def chunkSorting(x):
 
   return x
 
+def varChunkSorting(x, y=4):
+  chunkDef = len(x)/y
+  chunks = []
+  for i in range(0,y):
+    chunks.append([[(chunkDef*(i)),(chunkDef*(i+1))],[]])
+  chunks.append([['Error Chunk'],[]])
+
+  for i in range(0,len(x)):
+    for iC in range(0,len(chunks)):
+      if chunks[iC][0][0] == 'Error Chunk':
+        pass
+      elif chunks[iC][0][0] <= x[i] & x[i] < chunks[iC][0][1]:
+        chunks[iC][1].append([x[i],i])
+        appended = True
+    if appended != True:
+      chunks[y][1].append([x[i],i])
+    appended = False
+    
+  
+  global myLines
+  x = []
+  myNewLines = []
+  iT = 0
+  for iC in range(0,len(chunks)):
+    for i in range(0,len(chunks[iC][1])):
+      graphicShift(chunks[iC][1][i][1],iT)
+      iT += 1
+      myNewLines.append(myLines[chunks[iC][1][i][1]])
+      x.append(chunks[iC][1][i][0])
+
+  myLines = myNewLines
+
+  return x
 
 if __name__ == "__main__":
   #Initialize array of increasing values
@@ -192,7 +225,8 @@ if __name__ == "__main__":
   #quickSort(tempArray)
 
   #Similar to "Quick Sort" with the exception of scanning left, and then reversing right.
-  tempArray = chunkSorting(tempArray)
+  #tempArray = varChunkSorting(tempArray,8)
+  #tempArray = chunkSorting(tempArray)
   ForwardAndBackSort(tempArray)
 
   while True:
