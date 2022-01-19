@@ -1,5 +1,6 @@
+from logging import NullHandler
 from random import randrange
-from time import sleep
+from time import sleep, perf_counter
 
 import sys
 from tqdm import tqdm
@@ -44,6 +45,40 @@ def graphicSwap(startVal, endVal):
 def graphicShift(startVal, endVal):
   graph.relocate_figure(myLines[startVal], endVal*step, 0)
   window.finalize()
+
+def randomizeArray(tempArray):
+  for iStart in range(0, len(myLines)):
+    iEnd = randrange(0, len(myLines))
+    graphicSwap(iStart, iEnd)
+    
+    x = tempArray[iStart]
+    y = tempArray[iEnd]
+    tempArray[iStart] = y
+    tempArray[iEnd] = x
+  return tempArray
+
+class BenchmarkWatcher():
+  def __init__(self):
+    pass
+  def recordTime(self,state):
+    if state == 'S':
+      self.start = perf_counter()
+    if state == 'E':
+      self.end = perf_counter()
+    if state == 'W':
+      self.start = 0
+      self.end = 0
+  def recordData(self,functions):
+    with open("RecordedData.txt", "a") as file:
+      file.write("Sorting function started at " + str(self.start) + " and ended at " + str(self.end))
+      file.write("\n + Function ran for " + str((self.end - self.start)) + " seconds.")
+      file.write("\n + Functions used: ")
+      for i in functions:
+        file.write(str(i) + "; ")
+      file.write("\n")
+    self.recordTime("W")
+      
+
 
 #Function for traditional sorting method of moving the highest value right
 def quickSort(x):
@@ -208,26 +243,50 @@ if __name__ == "__main__":
   for i in range(0, len(myLines)):
     tempArray.append(i)
 
-
-  #Random distribution of values from an organized list using randrange
-  for iStart in range(0, len(myLines)):
-    iEnd = randrange(0, len(myLines))
-    graphicSwap(iStart, iEnd)
+  i = 0
+  chunkNum = 8
+  while True:
+    tempArray = randomizeArray(tempArray)
     
-    x = tempArray[iStart]
-    y = tempArray[iEnd]
-    tempArray[iStart] = y
-    tempArray[iEnd] = x
+    timeKeep = BenchmarkWatcher()
+    timeKeep.recordTime("S")
 
-    #sleep(0.1)
+    tempArray = varChunkSorting(tempArray, i+2)
+    ForwardAndBackSort(tempArray)
+    timeKeep.recordTime('E')
+    timeKeep.recordData(["varChunkSorting (" + str(i+2) + " chunks)", "ForwardAndBackSort"])
 
-  #Traditional sorting method of moving the highest value right
-  #quickSort(tempArray)
 
-  #Similar to "Quick Sort" with the exception of scanning left, and then reversing right.
-  #tempArray = varChunkSorting(tempArray,8)
-  #tempArray = chunkSorting(tempArray)
-  ForwardAndBackSort(tempArray)
+    #if i <= 2:
+    #  #Traditional sorting method of moving the highest value right
+    #  quickSort(tempArray)
+
+    #  timeKeep.recordTime("E")
+    #  timeKeep.recordData(["Quicksort"])
+
+    #if 2 < i & i <= 5:
+    #  tempArray = varChunkSorting(tempArray,chunkNum)
+    #  quickSort(tempArray)
+
+    #  timeKeep.recordTime("E")
+    #  timeKeep.recordData(["varChunkSorting (" + str(chunkNum) + " chunks)", "ForwardAndBackSort"])
+
+    #if 5 < i & i <= 8:
+    #  ForwardAndBackSort(tempArray)
+
+    #  timeKeep.recordTime("E")
+    #  timeKeep.recordData(["ForwardAndBackSort"])
+
+    #if 8 < i & i <= 11:
+    #  tempArray = varChunkSorting(tempArray,chunkNum)
+    #  ForwardAndBackSort(tempArray)
+
+    #  timeKeep.recordTime("E")
+    #  timeKeep.recordData(["varChunkSorting (" + str(chunkNum) + " chunks)", "ForwardAndBackSort"])
+
+    i += 1
+    if i >= 11:
+      break
 
   while True:
     event, values = window.read()

@@ -1,0 +1,75 @@
+Sorting function started at 607383.3525366 and ended at 607445.2753834
+ + Function ran for 61.9228468000656 seconds.
+ + Functions used: varChunkSorting; ForwardAndBackSort; 
+Sorting function started at 607897.9918981 and ended at 607959.524846
+ + Function ran for 61.53294790000655 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 607959.5259275 and ended at 607961.4925343
+ + Function ran for 1.9666067999787629 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 609288.5272501 and ended at 609688.7299897
+ + Function ran for 400.20273959997576 seconds.
+ + Functions used: Quicksort; 
+Sorting function started at 609703.2030134 and ended at 610105.1960153
+ + Function ran for 401.99300190003123 seconds.
+ + Functions used: Quicksort; 
+Sorting function started at 610119.3879186 and ended at 610495.2138385
+ + Function ran for 375.8259198999731 seconds.
+ + Functions used: Quicksort; 
+Sorting function started at 610509.4021539 and ended at 610569.9033993
+ + Function ran for 60.501245399937034 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 610583.8378133 and ended at 610642.5541619
+ + Function ran for 58.71634859999176 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 610656.5971886 and ended at 610717.3525083
+ + Function ran for 60.75531969999429 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 610731.4365194 and ended at 611108.0388438
+ + Function ran for 376.6023243999807 seconds.
+ + Functions used: ForwardAndBackSort; 
+Sorting function started at 611122.119251 and ended at 611494.9916691
+ + Function ran for 372.87241810001433 seconds.
+ + Functions used: ForwardAndBackSort; 
+Sorting function started at 611508.6569366 and ended at 611884.5552987
+ + Function ran for 375.89836210000794 seconds.
+ + Functions used: ForwardAndBackSort; 
+Sorting function started at 611898.620233 and ended at 611958.8996022
+ + Function ran for 60.279369199997745 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 611973.3761717 and ended at 612034.3537713
+ + Function ran for 60.977599600097165 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 612307.7821649 and ended at 612511.1679493
+ + Function ran for 203.38578440004494 seconds.
+ + Functions used: varChunkSorting (2 chunks); ForwardAndBackSort; 
+Sorting function started at 612526.0150065 and ended at 612667.7447366
+ + Function ran for 141.7297301000217 seconds.
+ + Functions used: varChunkSorting (3 chunks); ForwardAndBackSort; 
+Sorting function started at 612682.0748176 and ended at 612789.3598866
+ + Function ran for 107.28506900009234 seconds.
+ + Functions used: varChunkSorting (4 chunks); ForwardAndBackSort; 
+Sorting function started at 612803.3251524 and ended at 612893.5316915
+ + Function ran for 90.20653910003603 seconds.
+ + Functions used: varChunkSorting (5 chunks); ForwardAndBackSort; 
+Sorting function started at 612907.7669899 and ended at 612984.8552648
+ + Function ran for 77.08827489998657 seconds.
+ + Functions used: varChunkSorting (6 chunks); ForwardAndBackSort; 
+Sorting function started at 612998.7795839 and ended at 613068.4117609
+ + Function ran for 69.63217700005043 seconds.
+ + Functions used: varChunkSorting (7 chunks); ForwardAndBackSort; 
+Sorting function started at 613082.9236551 and ended at 613143.439064
+ + Function ran for 60.51540889998432 seconds.
+ + Functions used: varChunkSorting (8 chunks); ForwardAndBackSort; 
+Sorting function started at 613157.7355279 and ended at 613213.2591818
+ + Function ran for 55.52365389990155 seconds.
+ + Functions used: varChunkSorting (9 chunks); ForwardAndBackSort; 
+Sorting function started at 613227.5683735 and ended at 613278.4724775
+ + Function ran for 50.90410399995744 seconds.
+ + Functions used: varChunkSorting (10 chunks); ForwardAndBackSort; 
+Sorting function started at 613292.6346118 and ended at 613340.4351375
+ + Function ran for 47.800525700091384 seconds.
+ + Functions used: varChunkSorting (11 chunks); ForwardAndBackSort; 
+Sorting function started at 613355.1604896 and ended at 613399.9860298
+ + Function ran for 44.82554019999225 seconds.
+ + Functions used: varChunkSorting (12 chunks); ForwardAndBackSort; 
