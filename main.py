@@ -247,14 +247,10 @@ if __name__ == "__main__":
   chunkNum = 8
   while True:
     tempArray = randomizeArray(tempArray)
-    
-    timeKeep = BenchmarkWatcher()
-    timeKeep.recordTime("S")
 
-    tempArray = varChunkSorting(tempArray, i+2)
+
+    tempArray = varChunkSorting(tempArray)
     ForwardAndBackSort(tempArray)
-    timeKeep.recordTime('E')
-    timeKeep.recordData(["varChunkSorting (" + str(i+2) + " chunks)", "ForwardAndBackSort"])
 
 
     #if i <= 2:
@@ -285,7 +281,7 @@ if __name__ == "__main__":
     #  timeKeep.recordData(["varChunkSorting (" + str(chunkNum) + " chunks)", "ForwardAndBackSort"])
 
     i += 1
-    if i >= 11:
+    if i >= 4:
       break
 
   while True:
